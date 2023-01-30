@@ -1,9 +1,12 @@
-// immediatly invoked function expression IIFE (()=>{})()
+import checkComplete from "./modulos/checkComplete.js";
+import deleteIcon from "./modulos/deleteIcon.js";
+
+// ejemplo de immediatly invoked function expression IIFE (()=>{})()
 ( () => {
 const btn = document.querySelector('[data-form-btn]');
 
-const createTask = (btnEvent) => {
-  btnEvent.preventDefault();
+const createTask = (event) => {
+  event.preventDefault();
   const input = document.querySelector('[data-form-input]');
   const value = input.value;
   input.value='';
@@ -17,25 +20,10 @@ const createTask = (btnEvent) => {
   titleTask.innerText = value;
   taskContent.appendChild(titleTask);
   task.appendChild(taskContent);
+  task.appendChild(deleteIcon());
   list.appendChild(task);
 };
 
 btn.addEventListener('click', createTask);
-
-//Arrow functions o funciones anonimas
-const checkComplete = () => {
-  const i = document.createElement('i');
-  i.classList.add("far","fa-check-square","icon");
-  i.addEventListener("click", completeTask);
-  return i;
 }
-
-const completeTask = (checkEvent) => {
-  const element = checkEvent.target;
-  element.classList.toggle('fas');
-  element.classList.toggle('far');
-  element.classList.toggle('completeIcon');
-}
-
-}
-) ();
+)();
