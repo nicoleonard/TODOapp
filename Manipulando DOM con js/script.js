@@ -1,3 +1,5 @@
+// immediatly invoked function expression IIFE (()=>{})()
+( () => {
 const btn = document.querySelector('[data-form-btn]');
 
 const createTask = (btnEvent) => {
@@ -12,20 +14,15 @@ const createTask = (btnEvent) => {
   taskContent.appendChild(checkComplete());
   const titleTask = document.createElement('span');
   titleTask.classList.add("task");
-  titleTask.innerText = value
+  titleTask.innerText = value;
   taskContent.appendChild(titleTask);
   task.appendChild(taskContent);
   list.appendChild(task);
-
-  console.log();
 };
 
-console.log(btn);
-
-//Arrow functions o funciones anonimas
 btn.addEventListener('click', createTask);
 
-
+//Arrow functions o funciones anonimas
 const checkComplete = () => {
   const i = document.createElement('i');
   i.classList.add("far","fa-check-square","icon");
@@ -37,5 +34,8 @@ const completeTask = (checkEvent) => {
   const element = checkEvent.target;
   element.classList.toggle('fas');
   element.classList.toggle('far');
-  element.classList.toggle('completeIcon')
+  element.classList.toggle('completeIcon');
 }
+
+}
+) ();
