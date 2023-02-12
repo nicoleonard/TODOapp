@@ -4,9 +4,10 @@ import dateElement from "./dateElement.js";
 
 export const readTasks = () => {
 const list = document.querySelector('[data-list]');
+list.innerHTML = "";
 
 
-    const tasksList = JSON.parse(localStorage.getItem("tasks"));
+    const tasksList = JSON.parse(localStorage.getItem("tasks")) || [];
     const dates = uniqueDates(tasksList);
 
     dates.forEach(date => {
